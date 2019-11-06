@@ -159,7 +159,7 @@
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\FlashControlV71.dll</HintPath>
     </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding">
-      <HintPath>..\..\..\DinoM\Dinases\Librerias\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <HintPath>..\..\..\..\DINASES\DinoM\Dinases\Librerias\QrCode\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="GMap.NET.Core">
       <HintPath>..\..\..\..\DINASES\DinoM\Dinases\Librerias\Gmap\GMap.NET.Core.dll</HintPath>

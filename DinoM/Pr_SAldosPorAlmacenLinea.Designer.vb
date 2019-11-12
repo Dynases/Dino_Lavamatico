@@ -25,13 +25,24 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Pr_SAldosPorAlmacenLinea))
         Dim cbGrupos_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbAlmacen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbgrupo3_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbgrupo4_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim cbgrupo2_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.ChbTodos = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbOtros = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbSuavisante = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbDetergente = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CheckTodos = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.CheckMayorCero = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CheckTodosAlmacen = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.checkUnaAlmacen = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.chbTodos2 = New DevComponents.DotNetBar.Controls.CheckBoxX()
+        Me.chbUnos = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.checkTodosGrupos = New DevComponents.DotNetBar.Controls.CheckBoxX()
         Me.checkUnaGrupo = New DevComponents.DotNetBar.Controls.CheckBoxX()
@@ -40,6 +51,14 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.cbGrupos = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.cbAlmacen = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lbgrupo1 = New DevComponents.DotNetBar.LabelX()
+        Me.cbgrupo3 = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbgrupo2 = New DevComponents.DotNetBar.LabelX()
+        Me.cbgrupo4 = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbgrupo3 = New DevComponents.DotNetBar.LabelX()
+        Me.cbgrupo2 = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.lbgrupo4 = New DevComponents.DotNetBar.LabelX()
         Me.ButtonItem1 = New DevComponents.DotNetBar.ButtonItem()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
@@ -56,11 +75,17 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.PanelIzq.SuspendLayout()
         CType(Me.MPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.cbGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.cbgrupo3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbgrupo4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbgrupo2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SuperTabPrincipal
@@ -200,14 +225,17 @@ Partial Class Pr_SAldosPorAlmacenLinea
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.Panel5)
         Me.GroupBox2.Controls.Add(Me.Panel3)
         Me.GroupBox2.Controls.Add(Me.Panel1)
+        Me.GroupBox2.Controls.Add(Me.Panel4)
         Me.GroupBox2.Controls.Add(Me.Panel2)
         Me.GroupBox2.Controls.Add(Me.LabelX2)
         Me.GroupBox2.Controls.Add(Me.LabelX1)
         Me.GroupBox2.Controls.Add(Me.cbGrupos)
         Me.GroupBox2.Controls.Add(Me.cbAlmacen)
         Me.GroupBox2.Controls.Add(Me.LabelX3)
+        Me.GroupBox2.Controls.Add(Me.GroupBox1)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
@@ -217,11 +245,78 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos"
         '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.ChbTodos)
+        Me.Panel5.Controls.Add(Me.chbOtros)
+        Me.Panel5.Controls.Add(Me.chbSuavisante)
+        Me.Panel5.Controls.Add(Me.chbDetergente)
+        Me.Panel5.Location = New System.Drawing.Point(7, 98)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(340, 30)
+        Me.Panel5.TabIndex = 388
+        '
+        'ChbTodos
+        '
+        '
+        '
+        '
+        Me.ChbTodos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.ChbTodos.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.ChbTodos.Location = New System.Drawing.Point(266, 5)
+        Me.ChbTodos.Name = "ChbTodos"
+        Me.ChbTodos.Size = New System.Drawing.Size(70, 23)
+        Me.ChbTodos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.ChbTodos.TabIndex = 281
+        Me.ChbTodos.Text = "Todos"
+        '
+        'chbOtros
+        '
+        '
+        '
+        '
+        Me.chbOtros.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbOtros.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.chbOtros.Location = New System.Drawing.Point(205, 4)
+        Me.chbOtros.Name = "chbOtros"
+        Me.chbOtros.Size = New System.Drawing.Size(81, 23)
+        Me.chbOtros.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbOtros.TabIndex = 279
+        Me.chbOtros.Text = "Otros"
+        '
+        'chbSuavisante
+        '
+        '
+        '
+        '
+        Me.chbSuavisante.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbSuavisante.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.chbSuavisante.Location = New System.Drawing.Point(103, 4)
+        Me.chbSuavisante.Name = "chbSuavisante"
+        Me.chbSuavisante.Size = New System.Drawing.Size(90, 23)
+        Me.chbSuavisante.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbSuavisante.TabIndex = 280
+        Me.chbSuavisante.Text = "Suavisante"
+        '
+        'chbDetergente
+        '
+        '
+        '
+        '
+        Me.chbDetergente.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbDetergente.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.chbDetergente.Location = New System.Drawing.Point(2, 4)
+        Me.chbDetergente.Name = "chbDetergente"
+        Me.chbDetergente.Size = New System.Drawing.Size(95, 23)
+        Me.chbDetergente.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbDetergente.TabIndex = 277
+        Me.chbDetergente.Text = "Detergente"
+        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.CheckTodos)
         Me.Panel3.Controls.Add(Me.CheckMayorCero)
-        Me.Panel3.Location = New System.Drawing.Point(110, 174)
+        Me.Panel3.Location = New System.Drawing.Point(144, 209)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(200, 50)
         Me.Panel3.TabIndex = 258
@@ -261,7 +356,7 @@ Partial Class Pr_SAldosPorAlmacenLinea
         '
         Me.Panel1.Controls.Add(Me.CheckTodosAlmacen)
         Me.Panel1.Controls.Add(Me.checkUnaAlmacen)
-        Me.Panel1.Location = New System.Drawing.Point(202, 37)
+        Me.Panel1.Location = New System.Drawing.Point(225, 37)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(120, 35)
@@ -298,15 +393,57 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.checkUnaAlmacen.TabIndex = 251
         Me.checkUnaAlmacen.Text = "Una"
         '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.chbTodos2)
+        Me.Panel4.Controls.Add(Me.chbUnos)
+        Me.Panel4.Location = New System.Drawing.Point(222, 157)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(119, 35)
+        Me.Panel4.TabIndex = 256
+        '
+        'chbTodos2
+        '
+        '
+        '
+        '
+        Me.chbTodos2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbTodos2.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.chbTodos2.Checked = True
+        Me.chbTodos2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chbTodos2.CheckValue = "Y"
+        Me.chbTodos2.Location = New System.Drawing.Point(60, 7)
+        Me.chbTodos2.Name = "chbTodos2"
+        Me.chbTodos2.Size = New System.Drawing.Size(55, 23)
+        Me.chbTodos2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbTodos2.TabIndex = 252
+        Me.chbTodos2.Text = "Todos"
+        '
+        'chbUnos
+        '
+        '
+        '
+        '
+        Me.chbUnos.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.chbUnos.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton
+        Me.chbUnos.Location = New System.Drawing.Point(10, 7)
+        Me.chbUnos.Name = "chbUnos"
+        Me.chbUnos.Size = New System.Drawing.Size(44, 23)
+        Me.chbUnos.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.chbUnos.TabIndex = 251
+        Me.chbUnos.Text = "Una"
+        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.checkTodosGrupos)
         Me.Panel2.Controls.Add(Me.checkUnaGrupo)
-        Me.Panel2.Location = New System.Drawing.Point(203, 112)
+        Me.Panel2.Location = New System.Drawing.Point(204, 354)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(119, 35)
         Me.Panel2.TabIndex = 256
+        Me.Panel2.Visible = False
         '
         'checkTodosGrupos
         '
@@ -349,7 +486,7 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX2.Location = New System.Drawing.Point(11, 187)
+        Me.LabelX2.Location = New System.Drawing.Point(9, 221)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX2.Size = New System.Drawing.Size(41, 16)
@@ -366,12 +503,13 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(11, 101)
+        Me.LabelX1.Location = New System.Drawing.Point(12, 343)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX1.Size = New System.Drawing.Size(82, 16)
         Me.LabelX1.TabIndex = 250
         Me.LabelX1.Text = "Laboratorio:"
+        Me.LabelX1.Visible = False
         '
         'cbGrupos
         '
@@ -380,7 +518,7 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.cbGrupos.DesignTimeLayout = cbGrupos_DesignTimeLayout
         Me.cbGrupos.DisabledBackColor = System.Drawing.Color.White
         Me.cbGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbGrupos.Location = New System.Drawing.Point(10, 123)
+        Me.cbGrupos.Location = New System.Drawing.Point(11, 365)
         Me.cbGrupos.Name = "cbGrupos"
         Me.cbGrupos.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.cbGrupos.Office2007CustomColor = System.Drawing.Color.DodgerBlue
@@ -388,6 +526,7 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.cbGrupos.SelectedItem = Nothing
         Me.cbGrupos.Size = New System.Drawing.Size(175, 22)
         Me.cbGrupos.TabIndex = 249
+        Me.cbGrupos.Visible = False
         Me.cbGrupos.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'cbAlmacen
@@ -424,6 +563,138 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.LabelX3.TabIndex = 241
         Me.LabelX3.Text = "Almacen:"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.lbgrupo1)
+        Me.GroupBox1.Controls.Add(Me.cbgrupo3)
+        Me.GroupBox1.Controls.Add(Me.lbgrupo2)
+        Me.GroupBox1.Controls.Add(Me.cbgrupo4)
+        Me.GroupBox1.Controls.Add(Me.lbgrupo3)
+        Me.GroupBox1.Controls.Add(Me.cbgrupo2)
+        Me.GroupBox1.Controls.Add(Me.lbgrupo4)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 74)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(350, 130)
+        Me.GroupBox1.TabIndex = 389
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Categoria"
+        '
+        'lbgrupo1
+        '
+        Me.lbgrupo1.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbgrupo1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbgrupo1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbgrupo1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbgrupo1.Location = New System.Drawing.Point(7, 70)
+        Me.lbgrupo1.Name = "lbgrupo1"
+        Me.lbgrupo1.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbgrupo1.Size = New System.Drawing.Size(116, 23)
+        Me.lbgrupo1.TabIndex = 380
+        Me.lbgrupo1.Text = "Grupo 1:"
+        Me.lbgrupo1.Visible = False
+        '
+        'cbgrupo3
+        '
+        cbgrupo3_DesignTimeLayout.LayoutString = resources.GetString("cbgrupo3_DesignTimeLayout.LayoutString")
+        Me.cbgrupo3.DesignTimeLayout = cbgrupo3_DesignTimeLayout
+        Me.cbgrupo3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbgrupo3.Location = New System.Drawing.Point(8, 96)
+        Me.cbgrupo3.Name = "cbgrupo3"
+        Me.cbgrupo3.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbgrupo3.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbgrupo3.SelectedIndex = -1
+        Me.cbgrupo3.SelectedItem = Nothing
+        Me.cbgrupo3.Size = New System.Drawing.Size(144, 22)
+        Me.cbgrupo3.TabIndex = 378
+        Me.cbgrupo3.Visible = False
+        Me.cbgrupo3.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'lbgrupo2
+        '
+        Me.lbgrupo2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbgrupo2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbgrupo2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbgrupo2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbgrupo2.Location = New System.Drawing.Point(8, 67)
+        Me.lbgrupo2.Name = "lbgrupo2"
+        Me.lbgrupo2.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbgrupo2.Size = New System.Drawing.Size(116, 23)
+        Me.lbgrupo2.TabIndex = 381
+        Me.lbgrupo2.Text = "Grupo 2:"
+        Me.lbgrupo2.Visible = False
+        '
+        'cbgrupo4
+        '
+        cbgrupo4_DesignTimeLayout.LayoutString = resources.GetString("cbgrupo4_DesignTimeLayout.LayoutString")
+        Me.cbgrupo4.DesignTimeLayout = cbgrupo4_DesignTimeLayout
+        Me.cbgrupo4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbgrupo4.Location = New System.Drawing.Point(8, 96)
+        Me.cbgrupo4.Name = "cbgrupo4"
+        Me.cbgrupo4.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbgrupo4.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbgrupo4.SelectedIndex = -1
+        Me.cbgrupo4.SelectedItem = Nothing
+        Me.cbgrupo4.Size = New System.Drawing.Size(144, 22)
+        Me.cbgrupo4.TabIndex = 379
+        Me.cbgrupo4.Visible = False
+        Me.cbgrupo4.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'lbgrupo3
+        '
+        Me.lbgrupo3.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbgrupo3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbgrupo3.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbgrupo3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbgrupo3.Location = New System.Drawing.Point(7, 66)
+        Me.lbgrupo3.Name = "lbgrupo3"
+        Me.lbgrupo3.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbgrupo3.Size = New System.Drawing.Size(116, 23)
+        Me.lbgrupo3.TabIndex = 382
+        Me.lbgrupo3.Text = "Grupo 3:"
+        Me.lbgrupo3.Visible = False
+        '
+        'cbgrupo2
+        '
+        cbgrupo2_DesignTimeLayout.LayoutString = resources.GetString("cbgrupo2_DesignTimeLayout.LayoutString")
+        Me.cbgrupo2.DesignTimeLayout = cbgrupo2_DesignTimeLayout
+        Me.cbgrupo2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbgrupo2.Location = New System.Drawing.Point(8, 96)
+        Me.cbgrupo2.Name = "cbgrupo2"
+        Me.cbgrupo2.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.cbgrupo2.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.cbgrupo2.SelectedIndex = -1
+        Me.cbgrupo2.SelectedItem = Nothing
+        Me.cbgrupo2.Size = New System.Drawing.Size(144, 22)
+        Me.cbgrupo2.TabIndex = 377
+        Me.cbgrupo2.Visible = False
+        Me.cbgrupo2.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'lbgrupo4
+        '
+        Me.lbgrupo4.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.lbgrupo4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.lbgrupo4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbgrupo4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.lbgrupo4.Location = New System.Drawing.Point(6, 66)
+        Me.lbgrupo4.Name = "lbgrupo4"
+        Me.lbgrupo4.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.lbgrupo4.Size = New System.Drawing.Size(116, 23)
+        Me.lbgrupo4.TabIndex = 383
+        Me.lbgrupo4.Text = "Grupo 4:"
+        Me.lbgrupo4.Visible = False
+        '
         'ButtonItem1
         '
         Me.ButtonItem1.GlobalItem = False
@@ -457,11 +728,18 @@ Partial Class Pr_SAldosPorAlmacenLinea
         CType(Me.MPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         CType(Me.cbGrupos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbAlmacen, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.cbgrupo3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbgrupo4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbgrupo2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -481,4 +759,20 @@ Partial Class Pr_SAldosPorAlmacenLinea
     Friend WithEvents Panel3 As Panel
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents ButtonItem1 As DevComponents.DotNetBar.ButtonItem
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents chbOtros As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents chbSuavisante As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents chbDetergente As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents lbgrupo1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbgrupo2 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbgrupo3 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents lbgrupo4 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents cbgrupo2 As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents cbgrupo4 As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents cbgrupo3 As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents ChbTodos As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents chbTodos2 As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents chbUnos As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

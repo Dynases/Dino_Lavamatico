@@ -489,12 +489,12 @@ Public Class F0_Movimiento
         With grproducto.RootTable.Columns("Laboratorio")
             .Width = 130
             .Visible = True
-            .Caption = "LABORATORIO"
+            .Caption = "DETERGENTE"
         End With
         With grproducto.RootTable.Columns("Presentacion")
             .Width = 130
             .Visible = True
-            .Caption = "PRESENTACION"
+            .Caption = "SUAVISANTE"
         End With
         With grproducto.RootTable.Columns("yfcdprod2")
             .Width = 130

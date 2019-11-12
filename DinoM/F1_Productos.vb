@@ -773,6 +773,7 @@ Public Class F1_Productos
     End Sub
 
     Private Sub cbUnidMaxima_ValueChanged(sender As Object, e As EventArgs) Handles cbUnidMaxima.ValueChanged
+        lblUnidadMin.Text = cbUnidMaxima.Text
         If cbUnidMaxima.SelectedIndex < 0 And cbUnidMaxima.Text <> String.Empty Then
             btUniMaxima.Visible = True
         Else

@@ -624,7 +624,7 @@ Public Class F0_MCompras
                 .Width = 120
                 .Caption = dtname.Rows(0).Item("Grupo 1").ToString
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-                .Visible = True
+                .Visible = False
             End With
             With grProductos.RootTable.Columns("grupo2")
                 .Width = 120
@@ -650,7 +650,7 @@ Public Class F0_MCompras
                 .Width = 120
                 .Caption = "Grupo 1"
                 .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-                .Visible = True
+                .Visible = False
             End With
             With grProductos.RootTable.Columns("grupo2")
                 .Width = 120
@@ -701,7 +701,7 @@ Public Class F0_MCompras
             .Width = 100
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
-            .Caption = "Unidad Max."
+            .Caption = "UNIDAD MAX."
         End With
         With grProductos.RootTable.Columns("yhprecio")
             .Width = 90
@@ -719,17 +719,17 @@ Public Class F0_MCompras
             .FormatString = "0.00"
         End With
         With grProductos.RootTable.Columns("stock")
-            .Width = 100
+            .Width = 110
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
-            .Caption = "Stock"
+            .Caption = "STOCK"
             .FormatString = "0.00"
         End With
         With grProductos.RootTable.Columns("Conversion")
-            .Width = 100
+            .Width = 120
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
             .Visible = True
-            .Caption = "Conversion"
+            .Caption = "CONVERSION"
             .FormatString = "0.00"
         End With
         With grProductos.RootTable.Columns("yfumax")
@@ -745,10 +745,10 @@ Public Class F0_MCompras
             .Caption = "Unidad Min."
         End With
         With grProductos.RootTable.Columns("yfMedida")
-            .Width = 100
+            .Width = 120
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = False
-            .Caption = "Medida"
+            .Visible = True
+            .Caption = "MEDIDA"
             .FormatString = "0.00"
         End With
         With grProductos
@@ -769,7 +769,7 @@ Public Class F0_MCompras
         Dim img As New Bitmap(My.Resources.delete, 28, 28)
         img.Save(Bin, Imaging.ImageFormat.Png)
         CType(grdetalle.DataSource, DataTable).Rows.Add(_fnSiguienteNumi() + 1, 0, 0, "", 0, 0, 0, "",
-                                                        0, "20190101", CDate("2019/01/01"), 0, 0, 0, "", Now.Date, "", "", 0, Bin.GetBuffer, 0, 0, 0, 0, 0)
+                                                        0, "20190101", CDate("2019/01/01"), 0, 0, 0, "", Now.Date, "", "", 0, 0, 0, 0, 0, 0, 0, Bin.GetBuffer)
 
     End Sub
 

@@ -663,9 +663,9 @@ Partial Class ModeloF1
         'SuperTabControlPanelBuscador
         '
         Me.SuperTabControlPanelBuscador.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 33)
+        Me.SuperTabControlPanelBuscador.Location = New System.Drawing.Point(0, 0)
         Me.SuperTabControlPanelBuscador.Name = "SuperTabControlPanelBuscador"
-        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(817, 474)
+        Me.SuperTabControlPanelBuscador.Size = New System.Drawing.Size(821, 507)
         Me.SuperTabControlPanelBuscador.TabIndex = 0
         Me.SuperTabControlPanelBuscador.TabItem = Me.SupTabItemBusqueda
         '

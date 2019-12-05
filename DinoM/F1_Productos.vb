@@ -246,6 +246,7 @@ Public Class F1_Productos
         cbUniVenta.ReadOnly = False
         cbUnidMaxima.ReadOnly = False
         tbConversion.IsInputReadOnly = False
+        swInventario.IsReadOnly = False
         _prCrearCarpetaImagenes()
         _prCrearCarpetaTemporal()
         BtAdicionar.Visible = True
@@ -254,6 +255,10 @@ Public Class F1_Productos
         btnImprimir.Visible = False
         dgjDetalleProducto.AllowEdit = InheritableBoolean.True
         dgjDetalleProducto.RootTable.Columns("delete").Visible = True
+        chbServicio.Enabled = True
+        chbDetergente.Enabled = True
+        chbOtros.Enabled = True
+        chbSuavisante.Enabled = True
         adicionarFilaDetalleProducto()
     End Sub
 
@@ -269,6 +274,7 @@ Public Class F1_Productos
         cbgrupo4.ReadOnly = True
         cbUMed.ReadOnly = True
         swEstado.IsReadOnly = True
+        swInventario.IsReadOnly = True
         cbUniVenta.ReadOnly = True
         cbUnidMaxima.ReadOnly = True
         tbConversion.IsInputReadOnly = True
@@ -281,6 +287,10 @@ Public Class F1_Productos
         btnImprimir.Visible = True
         dgjDetalleProducto.AllowEdit = InheritableBoolean.False
         dgjDetalleProducto.RootTable.Columns("delete").Visible = False
+        chbServicio.Enabled = False
+        chbDetergente.Enabled = False
+        chbOtros.Enabled = False
+        chbSuavisante.Enabled = False
     End Sub
 
     Public Overrides Sub _PMOLimpiar()
@@ -297,12 +307,15 @@ Public Class F1_Productos
             _prSeleccionarCombo(cbUMed)
             _prSeleccionarCombo(cbUnidMaxima)
             _prSeleccionarCombo(cbUniVenta)
-            swEstado.Value = True
-            tbConversion.Value = 1
 
-            tbStockMinimo.Value = 0
+
         End If
+        swEstado.Value = True
+        tbConversion.Value = 1
+        tbStockMinimo.Value = 0
         tbCodProd.Focus()
+        tbMedida.Value = 0
+
         UsImg.pbImage.Image = My.Resources.pantalla
 
         armarGrillaDetalleProducto(0)

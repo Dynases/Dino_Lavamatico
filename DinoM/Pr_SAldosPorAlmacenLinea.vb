@@ -223,41 +223,81 @@ Public Class Pr_SAldosPorAlmacenLinea
         Dim _grupo As Integer
         Dim res As Boolean = False
         Dim _grupoNombre As String = ""
-        If ChbTodos.Checked = True Then
-            _dt = L_fnBuscarSaldoTodosCategoria(cbAlmacen.Value, checkTodosGrupos.Checked, CheckTodos.Checked)
-            If (_dt.Rows.Count > 0) Then
-                Dim objrep As New R_SaldoPorTodasCategoria()
-                objrep.SetDataSource(_dt)
-                objrep.SetParameterValue("usuario", L_Usuario)
-                MReportViewer.ReportSource = objrep
-                MReportViewer.Show()
-                MReportViewer.BringToFront()
+        If swInventario.Value = True Then
+            If ChbTodos.Checked = True Then
+                _dt = L_fnBuscarSaldoTodosCategoriaXUnidadMaxima(cbAlmacen.Value, checkTodosGrupos.Checked, CheckTodos.Checked)
+                If (_dt.Rows.Count > 0) Then
+                    Dim objrep As New R_SaldoPorTodasCegoriaUnidadMAX()
+                    objrep.SetDataSource(_dt)
+                    objrep.SetParameterValue("usuario", L_Usuario)
+                    MReportViewer.ReportSource = objrep
+                    MReportViewer.Show()
+                    MReportViewer.BringToFront()
+                    res = True
+                End If
                 res = True
+            Else
+                If chbDetergente.Checked = True Then
+                    _grupo = 1
+                    _grupoNombre = "Detergente"
+                ElseIf chbSuavisante.Checked Then
+                    _grupo = 2
+                    _grupoNombre = "Suavisante"
+                ElseIf chbOtros.Checked Then
+                    _grupo = 3
+                    _grupoNombre = "Otros"
+                End If
+                _dt = L_fnBuscarSaldoCategoriaXUnidadMaxima(cbAlmacen.Value, checkTodosGrupos.Checked, _grupo, CheckTodos.Checked, chbTodos2.Checked, cbgrupo2.Value, cbgrupo3.Value, cbgrupo4.Value)
+                If (_dt.Rows.Count > 0) Then
+                    Dim objrep As New SaldoPorCategoriaUnidadMax()
+                    objrep.SetDataSource(_dt)
+                    objrep.SetParameterValue("usuario", L_Usuario)
+                    objrep.SetParameterValue("Grupo", _grupoNombre)
+                    MReportViewer.ReportSource = objrep
+                    MReportViewer.Show()
+                    MReportViewer.BringToFront()
+                    res = True
+                End If
             End If
-            res = True
         Else
-            If chbDetergente.Checked = True Then
-                _grupo = 1
-                _grupoNombre = "Detergente"
-            ElseIf chbSuavisante.Checked Then
-                _grupo = 2
-                _grupoNombre = "Suavisante"
-            ElseIf chbOtros.Checked Then
-                _grupo = 3
-                _grupoNombre = "Otros"
-            End If
-            _dt = L_fnBuscarSaldoCategoria(cbAlmacen.Value, checkTodosGrupos.Checked, _grupo, CheckTodos.Checked, chbTodos2.Checked, cbgrupo2.Value, cbgrupo3.Value, cbgrupo4.Value)
-            If (_dt.Rows.Count > 0) Then
-                Dim objrep As New R_SaldoPorCategoria()
-                objrep.SetDataSource(_dt)
-                objrep.SetParameterValue("usuario", L_Usuario)
-                objrep.SetParameterValue("Grupo", _grupoNombre)
-                MReportViewer.ReportSource = objrep
-                MReportViewer.Show()
-                MReportViewer.BringToFront()
+            If ChbTodos.Checked = True Then
+                _dt = L_fnBuscarSaldoTodosCategoria(cbAlmacen.Value, checkTodosGrupos.Checked, CheckTodos.Checked)
+                If (_dt.Rows.Count > 0) Then
+                    Dim objrep As New R_SaldoPorTodasCategoria()
+                    objrep.SetDataSource(_dt)
+                    objrep.SetParameterValue("usuario", L_Usuario)
+                    MReportViewer.ReportSource = objrep
+                    MReportViewer.Show()
+                    MReportViewer.BringToFront()
+                    res = True
+                End If
                 res = True
+            Else
+                If chbDetergente.Checked = True Then
+                    _grupo = 1
+                    _grupoNombre = "Detergente"
+                ElseIf chbSuavisante.Checked Then
+                    _grupo = 2
+                    _grupoNombre = "Suavisante"
+                ElseIf chbOtros.Checked Then
+                    _grupo = 3
+                    _grupoNombre = "Otros"
+                End If
+                _dt = L_fnBuscarSaldoCategoria(cbAlmacen.Value, checkTodosGrupos.Checked, _grupo, CheckTodos.Checked, chbTodos2.Checked, cbgrupo2.Value, cbgrupo3.Value, cbgrupo4.Value)
+                If (_dt.Rows.Count > 0) Then
+                    Dim objrep As New R_SaldoPorCategoria()
+                    objrep.SetDataSource(_dt)
+                    objrep.SetParameterValue("usuario", L_Usuario)
+                    objrep.SetParameterValue("Grupo", _grupoNombre)
+                    MReportViewer.ReportSource = objrep
+                    MReportViewer.Show()
+                    MReportViewer.BringToFront()
+                    res = True
+                End If
             End If
+
         End If
+
         If res = False Then
             ToastNotification.Show(Me, "NO HAY DATOS PARA LOS PARAMETROS SELECCIONADOS..!!!",
                                        My.Resources.INFORMATION, 2000,

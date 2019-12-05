@@ -60,6 +60,8 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.cbgrupo2 = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.lbgrupo4 = New DevComponents.DotNetBar.LabelX()
         Me.ButtonItem1 = New DevComponents.DotNetBar.ButtonItem()
+        Me.swInventario = New DevComponents.DotNetBar.Controls.SwitchButton()
+        Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
         CType(Me.SuperTabPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabPrincipal.SuspendLayout()
         Me.SuperTabControlPanelRegistro.SuspendLayout()
@@ -225,6 +227,8 @@ Partial Class Pr_SAldosPorAlmacenLinea
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.swInventario)
+        Me.GroupBox2.Controls.Add(Me.LabelX19)
         Me.GroupBox2.Controls.Add(Me.Panel5)
         Me.GroupBox2.Controls.Add(Me.Panel3)
         Me.GroupBox2.Controls.Add(Me.Panel1)
@@ -701,6 +705,39 @@ Partial Class Pr_SAldosPorAlmacenLinea
         Me.ButtonItem1.Name = "ButtonItem1"
         Me.ButtonItem1.Text = "ButtonItem1"
         '
+        'swInventario
+        '
+        '
+        '
+        '
+        Me.swInventario.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.swInventario.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.swInventario.Location = New System.Drawing.Point(144, 280)
+        Me.swInventario.Name = "swInventario"
+        Me.swInventario.OffBackColor = System.Drawing.Color.LawnGreen
+        Me.swInventario.OffText = "MINIMA"
+        Me.swInventario.OnBackColor = System.Drawing.Color.Gold
+        Me.swInventario.OnText = "MAXIMA"
+        Me.swInventario.Size = New System.Drawing.Size(136, 22)
+        Me.swInventario.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.swInventario.TabIndex = 390
+        Me.swInventario.Value = True
+        Me.swInventario.ValueObject = "Y"
+        '
+        'LabelX19
+        '
+        '
+        '
+        '
+        Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX19.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX19.Location = New System.Drawing.Point(9, 280)
+        Me.LabelX19.Name = "LabelX19"
+        Me.LabelX19.Size = New System.Drawing.Size(120, 23)
+        Me.LabelX19.TabIndex = 391
+        Me.LabelX19.Text = "Unidad de Medida:"
+        '
         'Pr_SAldosPorAlmacenLinea
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -775,4 +812,6 @@ Partial Class Pr_SAldosPorAlmacenLinea
     Friend WithEvents chbTodos2 As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents chbUnos As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents swInventario As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents LabelX19 As DevComponents.DotNetBar.LabelX
 End Class

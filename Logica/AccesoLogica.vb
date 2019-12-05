@@ -5055,9 +5055,9 @@ Public Class AccesoLogica
 		                a.yfcdprod1, a.yfMed, 
 		                a.yfap, c.iccprod, 		 
 		                b.yccod3, 
-		                grupo2.ycdes3 as grupo1, 
-			            grupo3.ycdes3 as grupo2,
-			            grupo4.ycdes3 as grupo3,			  
+		                CASE grupo2.ycdes3 WHEN 'NO EXISTE' THEN '.' ELSE grupo2.ycdes3 END as grupo1, 
+						CASE grupo3.ycdes3 WHEN 'NO EXISTE' THEN '.' ELSE grupo3.ycdes3 END as grupo2, 
+						CASE grupo4.ycdes3 WHEN 'NO EXISTE' THEN '.' ELSE grupo4.ycdes3 END as grupo4, 			  
                         a.yfcprod, 
 			            b.ycdes3, 
 			            SUM(c.iccven) AS iccven, 
@@ -5088,6 +5088,139 @@ Public Class AccesoLogica
         sb.Length = sb.Length - 7
         sb.Append(" GROUP BY  deposito.abnumi, deposito.abdesc, a.yfnumi, a.yfcprod, a.yfcdprod1, a.yfMed, a.yfap, c.iccprod, b.yccod3, b.ycdes3, grupo4.ycdes3, grupo4.ycdes3, precio.yhprecio, grupo4.yccod3,
 		            grupo4.yccod3, grupo3.ycdes3, grupo2.ycdes3, a.yfMedida ")
+        _Tabla = D_Datos_EjecutarConulta(sb.ToString())
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnBuscarSaldoCategoriaXUnidadMaxima(_valor As String, almacen As Boolean, _grupo As Integer, _grupoStock As Boolean, _grupoTodos As Boolean, _idGrupo1 As Integer, _idGrupo2 As Integer, _idGrupo3 As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim sb As New StringBuilder
+        sb.Append(String.Format("DECLARE @grupo INT
+                    SET @grupo = {0}
+                    SELECT 
+		                    deposito.abnumi, 
+		                    deposito.abdesc AS almacen, 
+		                    a.yfnumi AS CodigoProducto, 
+		                    a.yfcprod AS CodLinea, 
+		                    a.yfcdprod1, a.yfMed, 
+		                    a.yfap, c.iccprod, 
+		                    SUM(c.iccven) AS iccven, 
+		                    b.yccod3, b.ycdes3, 
+		                    CASE @grupo WHEN 1 THEN grupo2.ycdes3 
+					                    WHEN 2 THEN grupo3.ycdes3 	
+					                    WHEN 3 THEN grupo4.ycdes3
+		                    end as grupo,
+                            Un_Max.yccod3 IdUnidadMAX,
+						    Un_MAX.ycdes3 UnMaxima,							  
+                            a.yfcprod, 
+			                b.ycdes3, 
+			                SUM(c.iccven) AS iccven, 
+			                a.yfMedida,
+						    a.yfvsup Conversion,
+						      SUM(c.iccven)/ a.yfvsup as TotalMax,
+			                SUM(c.iccven)/ a.yfMedida as TotalMedida,
+		                    precio.yhprecio,
+		                    (SUM(c.iccven) / a.yfMedida) * precio.yhprecio as total
+	                    FROM     
+		                    dbo.TY005 AS a INNER JOIN
+                            dbo.TI001 AS c ON a.yfnumi = c.iccprod INNER JOIN
+                            dbo.TY0031 AS b ON a.yfusup = b.yccod3 INNER JOIN
+						    dbo.TY0031 AS Un_MAx ON  Un_MAx.yccod1 = 1 AND Un_MAx.yccod2 = 6 AND Un_MAx.yccod3 = a.yfumin JOIN
+                            dbo.TA002 AS deposito ON deposito.abnumi = c.icalm inner join 
+		                    TA001 as almacen on almacen .aata2dep =deposito .abnumi INNER JOIN
+		                    dbo.TY0031 AS grupo2 ON  grupo2.yccod1 = 1  AND grupo2.yccod2 = 2  AND grupo2.yccod3 = a.yfgr2 INNER JOIN
+                            dbo.TY0031 AS grupo3 ON  grupo3.yccod1 = 1  AND grupo3.yccod2 = 3  AND grupo3.yccod3 = a.yfgr3 INNER JOIN
+                            dbo.TY0031 AS grupo4 ON grupo4.yccod1 = 1   AND grupo4.yccod2 = 4 AND grupo4.yccod3 = a.yfgr4 INNER JOIN
+		                    dbo.TY007 AS precio ON precio.yhalm = 1     AND precio.yhcatpre = 1099 AND precio.yhprod = a.yfnumi
+	                    WHERE  
+		                    (b.yccod1 = 1) AND 
+		                    (b.yccod2 = 6) AND 
+		                    a.yfmstk = 0 AND   ", _grupo))
+        If almacen = False Then
+            sb.Append(String.Format(" almacen.aanumi = {0} AND   ", _valor))
+            'Grupo detergente
+        ElseIf _grupo = 1 Then
+            If _grupoTodos Then
+                sb.Append(" grupo2.ycdes3 <> 'NO EXISTE' AND   ")
+            Else
+                sb.Append(String.Format(" grupo2.yccod3 = {0} AND   ", _idGrupo1))
+            End If
+        End If
+        'Grupo suavisante
+        If _grupo = 2 Then
+            If _grupoTodos Then
+                sb.Append(" grupo3.ycdes3 <> 'NO EXISTE' AND   ")
+            Else
+                sb.Append(String.Format(" grupo3.yccod3 = {0} AND   ", _idGrupo2))
+            End If
+        End If
+        'Grupo otros
+        If _grupo = 3 Then
+            If _grupoTodos Then
+                sb.Append(" grupo4.ycdes3 <> 'NO EXISTE' AND   ")
+            Else
+                sb.Append(String.Format(" grupo4.yccod3 = {0} AND   ", _idGrupo3))
+            End If
+        End If
+        If _grupoStock = False Then
+            sb.Append(" c.iccven>0 AND   ")
+        End If
+        sb.Length = sb.Length - 7
+        sb.Append(" GROUP BY  deposito.abnumi, deposito.abdesc, a.yfnumi, a.yfcprod, a.yfcdprod1, a.yfMed, a.yfap, c.iccprod, b.yccod3, b.ycdes3, grupo4.ycdes3, grupo4.ycdes3, precio.yhprecio, grupo4.yccod3,
+		            grupo4.yccod3, grupo3.ycdes3, grupo2.ycdes3, a.yfMedida,Un_Max.yccod3,	Un_MAx.ycdes3,a.yfvsup ")
+        _Tabla = D_Datos_EjecutarConulta(sb.ToString())
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_fnBuscarSaldoTodosCategoriaXUnidadMaxima(_valor As String, almacen As Boolean, _grupoStock As Boolean) As DataTable
+        Dim _Tabla As DataTable
+        Dim sb As New StringBuilder
+        sb.Append("SELECT 
+		                deposito.abnumi, 
+		                deposito.abdesc AS almacen, 
+		                a.yfnumi AS CodigoProducto, 
+		                a.yfcprod AS CodLinea, 
+		                a.yfcdprod1, a.yfMed, 
+		                a.yfap, c.iccprod, 		 
+		                b.yccod3, 
+		                CASE grupo2.ycdes3 WHEN 'NO EXISTE' THEN '.' ELSE grupo2.ycdes3 END as grupo1, 
+						CASE grupo3.ycdes3 WHEN 'NO EXISTE' THEN '.' ELSE grupo3.ycdes3 END as grupo2, 
+						CASE grupo4.ycdes3 WHEN 'NO EXISTE' THEN '.' ELSE grupo4.ycdes3 END as grupo4, 
+						Un_Max.yccod3 IdUnidadMAX,
+						Un_MAX.ycdes3 UnMaxima,							  
+                        a.yfcprod, 
+			            b.ycdes3, 
+			            SUM(c.iccven) AS iccven, 
+			            a.yfMedida,
+						a.yfvsup Conversion,
+						  SUM(c.iccven)/ a.yfvsup as TotalMax,
+			            SUM(c.iccven)/ a.yfMedida as TotalMedida,
+		                precio.yhprecio,
+		                (SUM(c.iccven) / a.yfMedida) * precio.yhprecio as total
+	                FROM     
+		                dbo.TY005 AS a INNER JOIN
+                        dbo.TI001 AS c ON a.yfnumi = c.iccprod INNER JOIN
+                        dbo.TY0031 AS b ON a.yfusup = b.yccod3 INNER JOIN
+						dbo.TY0031 AS Un_MAx ON  Un_MAx.yccod1 = 1 AND Un_MAx.yccod2 = 6 AND Un_MAx.yccod3 = a.yfumin JOIN
+                        dbo.TA002 AS deposito ON deposito.abnumi = c.icalm inner join 
+		                TA001 as almacen on almacen .aata2dep =deposito .abnumi INNER JOIN
+		                dbo.TY0031 AS grupo2 ON  grupo2.yccod1 = 1  AND grupo2.yccod2 = 2  AND grupo2.yccod3 = a.yfgr2 INNER JOIN
+                        dbo.TY0031 AS grupo3 ON  grupo3.yccod1 = 1  AND grupo3.yccod2 = 3  AND grupo3.yccod3 = a.yfgr3 INNER JOIN
+                        dbo.TY0031 AS grupo4 ON grupo4.yccod1 = 1   AND grupo4.yccod2 = 4 AND grupo4.yccod3 = a.yfgr4 INNER JOIN
+		                dbo.TY007 AS precio ON precio.yhalm = 1     AND precio.yhcatpre = 1099 AND precio.yhprod = a.yfnumi
+	                WHERE  
+		                (b.yccod1 = 1) AND 
+		                (b.yccod2 = 6) AND 
+		                a.yfmstk = 0 AND   ")
+        If almacen = False Then
+            sb.Append(String.Format(" almacen.aanumi = {0} AND   ", _valor))
+        End If
+        If _grupoStock = False Then
+            sb.Append(" c.iccven>0 AND   ")
+        End If
+        sb.Length = sb.Length - 7
+        sb.Append("GROUP BY  deposito.abnumi, deposito.abdesc, a.yfnumi, a.yfcprod, a.yfcdprod1, a.yfMed, a.yfap, c.iccprod, b.yccod3, b.ycdes3, grupo4.ycdes3, grupo4.ycdes3, precio.yhprecio, grupo4.yccod3,
+		            grupo4.yccod3, grupo3.ycdes3, grupo2.ycdes3, a.yfMedida,Un_Max.yccod3,	Un_MAx.ycdes3,a.yfvsup ")
         _Tabla = D_Datos_EjecutarConulta(sb.ToString())
         Return _Tabla
     End Function

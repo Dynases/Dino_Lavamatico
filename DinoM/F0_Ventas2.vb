@@ -154,12 +154,12 @@ Public Class F0_Ventas2
         'If (GPanelProductos.Visible = True) Then
         '    _DesHabilitarProductos()
         'End If
-
         TbNit.ReadOnly = True
         TbNombre1.ReadOnly = True
         'TbNombre2.ReadOnly = True
         cbSucursal.ReadOnly = True
         FilaSelectLote = Nothing
+        _prInHabilitarImagenes()
     End Sub
     Private Sub _prhabilitar()
         BFGrupo1.Enabled = True
@@ -185,6 +185,7 @@ Public Class F0_Ventas2
             cbSucursal.ReadOnly = False
 
         End If
+        _prHabilitarImagenes()
     End Sub
     Public Sub _prFiltrar()
         'cargo el buscador
@@ -2966,12 +2967,46 @@ salirIf:
         BF15.Visible = False
     End Sub
 
+    Sub _prHabilitarImagenes()
+        BF1.Enabled = True
+        BF2.Enabled = True
+        BF3.Enabled = True
+        BF4.Enabled = True
+        BF5.Enabled = True
+        BF6.Enabled = True
+        BF7.Enabled = True
+        BF8.Enabled = True
+        BF9.Enabled = True
+        BF10.Enabled = True
+        BF11.Enabled = True
+        BF12.Enabled = True
+        BF13.Enabled = True
+        BF14.Enabled = True
+        BF15.Enabled = True
+    End Sub
+    Sub _prInHabilitarImagenes()
+        BF1.Enabled = False
+        BF2.Enabled = False
+        BF3.Enabled = False
+        BF4.Enabled = False
+        BF5.Enabled = False
+        BF6.Enabled = False
+        BF7.Enabled = False
+        BF8.Enabled = False
+        BF9.Enabled = False
+        BF10.Enabled = False
+        BF11.Enabled = False
+        BF12.Enabled = False
+        BF13.Enabled = False
+        BF14.Enabled = False
+        BF15.Enabled = False
+    End Sub
     Sub _prMostrarImagenes()
         Dim _lugar As Integer = 0
         _prLimpiarImagenes()
         For i As Integer = _inicio To CType(grProductos.DataSource, DataTable).Rows.Count - 1
             Dim name As String = CType(grProductos.DataSource, DataTable).Rows(i).Item("yfimg")
-            Dim _producto As String = CType(grProductos.DataSource, DataTable).Rows(i).Item("yfcdprod1")
+            Dim _producto As String = CType(grProductos.DataSource, DataTable).Rows(i).Item("yfcdprod2")
             Dim _Idproducto As String = CType(grProductos.DataSource, DataTable).Rows(i).Item("yfnumi")
             If name.Equals("Default.jpg") Or Not File.Exists(RutaGlobal + "\Imagenes\Imagenes ProductoDino" + name) Then
                 Dim im As New Bitmap(My.Resources.pantalla)

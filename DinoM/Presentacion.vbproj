@@ -512,6 +512,12 @@
       <DependentUpon>R_SaldoPorTodasCategoria.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reporte\R_SaldoPorTodasCegoriaUnidadMAX.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_SaldoPorTodasCegoriaUnidadMAX.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reporte\R_SaldosPorLinea.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -726,6 +732,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>R_VentasVendedor12Meses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\SaldoPorCategoriaUnidadMax.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaldoPorCategoriaUnidadMax.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\Efecto.Designer.vb">
@@ -946,6 +958,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_SaldoPorTodasCategoria.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\R_SaldoPorTodasCegoriaUnidadMAX.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_SaldoPorTodasCegoriaUnidadMAX.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reporte\R_SaldosPorLinea.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_SaldosPorLinea.vb</LastGenOutput>
@@ -1088,6 +1104,10 @@
     <EmbeddedResource Include="Reporte\R_VentasVendedor12Meses.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VentasVendedor12Meses.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\SaldoPorCategoriaUnidadMax.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaldoPorCategoriaUnidadMax.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Efecto.resx">
       <DependentUpon>Efecto.vb</DependentUpon>
